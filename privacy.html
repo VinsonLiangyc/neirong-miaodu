@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="内容秒读隐私政策：了解字幕、消化笔记与 API Key 的处理方式，以及如何清理本机数据。">
+<title>隐私政策 · 内容秒读</title>
+<style>
+:root{color-scheme:light;--bg:#f8f7f3;--paper:#fffefa;--ink:#283b32;--muted:#6f7971;--green:#315c48;--line:#dee4da;--tint:#edf2e9}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.85 system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif}main{width:min(780px,calc(100% - 40px));margin:52px auto 64px}header{padding-bottom:26px;border-bottom:1px solid var(--line)}.brand{color:var(--green);font-size:16px;font-weight:650;letter-spacing:.04em}h1{font-size:32px;line-height:1.3;margin:18px 0 12px;letter-spacing:-.03em}.meta{margin:0;color:var(--muted);font-size:14px}.intro{background:var(--tint);padding:20px 24px;border-radius:16px;margin:28px 0}.intro p{margin:0}section{margin:30px 0}h2{font-size:20px;line-height:1.5;margin:0 0 12px}p{margin:0 0 12px}ul{margin:10px 0;padding-left:22px}li{margin:9px 0}strong{font-weight:650}a{color:var(--green);text-underline-offset:4px;overflow-wrap:anywhere}code{font:13px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace;background:var(--tint);padding:2px 5px;border-radius:4px;overflow-wrap:anywhere}footer{border-top:1px solid var(--line);padding-top:22px;margin-top:36px;font-size:14px;color:var(--muted)}@media(max-width:520px){main{width:calc(100% - 32px);margin-top:28px}h1{font-size:28px}.intro{padding:18px}body{font-size:15px}}
+</style>
+</head>
+<body><main>
+<header><div class="brand">内容秒读</div><h1>隐私政策</h1><p class="meta">更新日期：2026 年 10 月 9 日（适用于 0.1.26 版） · 开发者：Vinson Liang</p></header>
+<div class="intro"><p>「内容秒读」帮助你在 YouTube 与哔哩哔哩查看字幕、整理中文消化笔记和浏览章节时间轴。字幕搜索与文件导出在本机完成；生成笔记时，相关内容会直接发送给你选择并授权的模型服务商。插件没有作者运营的数据服务器，也不内置广告或使用行为分析服务。</p></div>
+<section><h2>1. 插件会处理哪些信息</h2><ul>
+<li><strong>当前视频和字幕：</strong>在支持的视频页面，插件会自动尝试读取视频标题、作者、视频编号与网址、时长、简介、章节、字幕正文及时间点，以及核对字幕来源所需的技术信息。读取播放时间是为了同步字幕和支持点击跳转。这些读取可能在侧栏尚未打开时发生，以便更快显示字幕。</li>
+<li><strong>页面自己加载的字幕：</strong>在 YouTube 和哔哩哔哩的视频页，插件会在页面内观察播放器自己发出的字幕请求，只限字幕和文字稿接口（YouTube 的字幕、文字稿接口，哔哩哔哩的字幕列表接口和字幕文件），复制一份返回内容用来更快取得当前视频的字幕。插件不会修改、拦截或重新发送这些请求，也不读取或保存 Cookie、请求头或登录令牌；字幕文件的地址只临时用于下载当前视频的字幕；复制的字幕只在页面内存中保留最多 15 分钟，并且切换视频后立即丢弃。</li>
+<li><strong>哔哩哔哩登录状态：</strong>读取哔哩哔哩字幕时，插件会从哔哩哔哩的公开接口得知你当前是否已登录（只是“是/否”），用来提示“需要登录才能读取字幕”等原因。不会读取账号名、Cookie 或其他账号资料，这个状态也不会保存或发送给任何人。</li>
+<li><strong>你主动提供的资料：</strong>你选择导入的 SRT、VTT 或 JSON 字幕，以及设置中填写的模型服务商、API 地址、模型名称与 API Key。导入只读取你选中的文件，不扫描电脑中的其他文件。</li>
+<li><strong>生成结果和任务状态：</strong>消化笔记、章节、标题与内容的对照结果、生成时间、模型、进度及失败状态，用来显示结果、恢复最近记录和继续已经开始的后台任务。</li>
+<li><strong>本机交互：</strong>搜索关键词用于本机匹配字幕；复制与导出只在你点击相关按钮后执行。插件不会读取剪贴板内容，也不会上传搜索关键词或保存所有网站的浏览记录。</li>
+</ul></section>
+<section><h2>2. 什么情况下信息会离开本机</h2><p><strong>向视频平台读取字幕：</strong>插件会请求 YouTube、哔哩哔哩及哔哩哔哩的字幕资源域名。部分页面请求使用你在相应平台已有的登录状态，由浏览器附带该平台的会话信息。从哔哩哔哩字幕文件服务器（hdslb.com）下载字幕文件时，插件不附带登录信息；当前字幕轨下载失败或内容明显不完整时，最多再尝试同一语言的 2 条备用字幕轨。字幕文件的临时下载地址用完即丢弃，不写入笔记、诊断文件或发给模型的内容。插件不会把视频平台的 Cookie 或登录凭证发送给模型服务商或作者。</p><p><strong>向你选择的模型服务商生成笔记：</strong>只有当你主动开始生成时，插件才使用你配置的 HTTPS API 地址和 API Key 发送模型请求。发送内容包括字幕及时间标记，或长字幕分段整理后的资料，以及视频标题、作者、规范化视频网址、时长、字幕来源、字幕完整性提示和作者章节。请求还包含整理指令、模型名称和输出参数。API Key 随请求头发送到你配置的服务端以完成认证，不通过作者服务器中转。</p><p>你点击「测试连接」时，插件也会向所选服务商发送简短测试文本和认证信息，但不会在该测试中发送视频字幕。正文与章节／标题对照分步调用模型，正文保存后才开始附加步骤；附加步骤未完成时会保留正文。测试、分步生成及必要的精简重试可能产生 API 费用，由你与服务商结算。</p><p>服务商会接收上述请求以及建立网络连接所需的信息，例如 IP 地址，其数据保留和处理规则由该服务商的政策决定。若你使用自定义中转地址，该地址的运营方也会接收请求和 API Key，请只配置你信任的服务。</p><p><strong>你主动联系或分享：</strong>导出的笔记、字幕或诊断文件保存在你的电脑，插件不会自动上传。「我的笔记」支持选择多篇导出为独立 PDF 或 Markdown 文件，多个文件打包为 ZIP，渲染和打包都在本机完成，不调用模型。只有当你自行通过邮箱、公众号等渠道发送时，接收方才会得到你发送的内容。外部网站和联系渠道适用其各自的隐私规则。</p></section>
+<section><h2>3. 本机保存与后台任务</h2><p>模型设置、API Key、最近笔记及任务记录保存在当前浏览器的扩展本机存储中，不使用 Chrome 同步存储。API Key <strong>并非保存在加密保险箱中</strong>，请保护你的电脑和浏览器账户。插件限制网页内容脚本访问这部分本机存储，也不会将密钥写入网页、笔记或内置诊断导出。</p><p>视频字幕另有浏览器会话内的临时缓存，缓存按标签页与视频区分，有效期为 15 分钟；关闭对应标签页会清理其会话缓存。「最近消化」中的缓存与已结束任务通常各保留 6 条，并受存储空间限制，较早的记录可能自动移除。正文完成后会另存入「我的笔记」的本机 IndexedDB 笔记库，已保留的旧缓存也会迁入；笔记库不按条数自动清理，同一视频保留最新一份。笔记库只存正文、章节、来源及生成状态，不另存完整字幕或 API Key。浏览器存储空间有限，保存失败会明确提示并保留最近任务中的正文。笔记不会跨浏览器、设备或 Chrome 账号自动同步，请定期导出备份；清除扩展站点数据或卸载插件可能移除本机笔记。</p><p>你主动开始的消化任务可以在切换页面或关闭侧栏后继续运行。请求期间，任务所用配置和内容也会临时存在后台内存中，直到任务结束或停止；关闭浏览器或重新加载扩展会中断未完成任务，不会自动重新发起收费请求。</p></section>
+<section><h2>4. 如何清理、停止或删除</h2><ul>
+<li>在生成界面点击「停止生成」，可停止该任务。已经送达服务商的请求和已发生的费用不能由插件撤回。</li>
+<li>在「模型设置」中点击「删除密钥」，可清除已保存的 API Key。这不会撤销服务商端的密钥，也不会取消已在运行的任务；如需一并停止使用，请先停止任务，并按需在服务商后台撤销密钥。</li>
+<li>在「模型设置」中点击「清空最近记录」，可删除最近缓存、已结束任务及其临时来源资料，不删除「我的笔记」中的长期记录。需要先完成或停止所有生成任务；尚未成功归档的正文不会被此按钮直接清除。当前页面及会话中的字幕仍可能保留，可通过关闭相应视频标签页清理。</li>
+<li>你可以在 Chrome 的扩展管理中撤销 API 站点访问权限、停用或卸载插件。卸载会移除扩展的本机存储，但不会删除你已经下载的文件，也不会删除模型服务商持有的请求记录。</li>
+</ul></section>
+<section><h2>5. 数据用途与有限使用</h2><p>「内容秒读」对用户数据的使用遵守 Chrome 网上应用店用户数据政策，包括 Limited Use（有限使用）要求。插件只为字幕阅读、内容消化、章节浏览及相关的本机保存、导出和故障排查处理必要信息，不将这些信息出售、用于广告投放或与核心功能无关的用户画像。</p><p>插件不自动向作者发送字幕、笔记、API Key、浏览记录或诊断信息。作者不会通过插件查看你的使用内容。只有当你为求助或交流主动提供具体内容时，作者才会在处理这次沟通所需的范围内阅读；请勿发送 API Key、密码或无关的敏感资料。</p></section>
+<section><h2>6. 问题与联系</h2><p>开发者：Vinson Liang<br>联系邮箱：<a href="mailto:vinsongogirl@gmail.com">vinsongogirl@gmail.com</a></p><p>如需询问本政策，或希望删除你主动发给作者的反馈资料，可以通过以上邮箱联系。模型服务商留存的数据需向相应服务商申请处理。若插件的数据处理方式发生变化，本政策会同步更新，并注明更新日期。</p></section>
+<footer>内容秒读 · 一键消化长内容，帮你提前筛选想看的</footer>
+</main></body></html>
